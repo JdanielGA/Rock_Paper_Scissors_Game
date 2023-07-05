@@ -1,5 +1,6 @@
 import os
 import time
+import mechanics
 
 def clean_screen():
     os.system('cls' if os.name == 'nt' else 'clear')                        # Clean the screen
@@ -28,11 +29,15 @@ Welcome to Rock, Paper, Scissors game!
             charging_screen()
             clean_screen()
             print('you are playing')
+            time.sleep(2)
+            second_screen()
         
         elif yes_no_choice == 2:
 
             clean_screen()
             print('that has been all, thank you')
+            time.sleep(2)
+            clean_screen()
             break
 
 def second_screen():
@@ -56,6 +61,8 @@ Round{n_round} | Player score => {p_score} - AI score => {ai_score}
     4> Exit.    
 '''
     )
+
+    mechanics.game_mechanics()
 
 def charging_screen():
 
