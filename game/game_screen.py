@@ -1,13 +1,9 @@
-import os
-import time
 import mechanics
-
-def clean_screen():
-    os.system('cls' if os.name == 'nt' else 'clear')                        # Clean the screen
+import tools
 
 def firts_screen():
 
-    clean_screen()
+    tools.clean_screen()
     yes_no_choice = ''
 
     while yes_no_choice not in ['1','2']:
@@ -26,18 +22,18 @@ Welcome to Rock, Paper, Scissors game!
 
         if yes_no_choice == 1:
 
-            charging_screen()
-            clean_screen()
-            print('you are playing')
-            time.sleep(2)
+            tools.charging_screen()
+            tools.clean_screen()
+            print('\n   You are playing!')
+            tools.time.sleep(2)
             second_screen()
         
         elif yes_no_choice == 2:
 
-            clean_screen()
+            tools.clean_screen()
             print('that has been all, thank you')
-            time.sleep(2)
-            clean_screen()
+            tools.time.sleep(2)
+            tools.clean_screen()
             break
 
 def second_screen():
@@ -46,7 +42,7 @@ def second_screen():
     p_score = 0
     ai_score = 0
     
-    clean_screen()
+    tools.clean_screen()
 
     print(f'''
     Your are playing!
@@ -63,15 +59,3 @@ Round{n_round} | Player score => {p_score} - AI score => {ai_score}
     )
 
     mechanics.game_mechanics()
-
-def charging_screen():
-
-    counter = 0.5
-    message = '.....'
-
-    for i in range (0,3):
-        clean_screen()
-        print(f'charging {message}')
-        time.sleep(counter)
-        counter += 0.5
-        message = message * 2
