@@ -24,7 +24,9 @@ This is a text-based implementation of the classic Rock, Paper, Scissors game. T
 2. Navigate to the project directory.
 3. Run the game by executing the `main.py` script:
 
-'''python game/main.py'''
+```
+python game/main.py
+```
 
 4. Follow the instructions displayed on the screen to play the game.
 5. Choose Rock, Paper, or Scissors by typing the corresponding number and pressing Enter.
