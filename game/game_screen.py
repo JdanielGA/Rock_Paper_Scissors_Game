@@ -18,21 +18,41 @@ Welcome to Rock, Paper, Scissors game!
     2> No.
 '''
         )
+        user_input = input('Pleas you must to choose the options (1 or 2): ')
 
-        yes_no_choice = int(input('Pleas you must to choose the options (1 or 2): '))
+        try:
+            yes_no_choice = int(user_input)
 
-        if yes_no_choice == 1:
-            tools.charging_screen()
+            if yes_no_choice == 1:
+                tools.charging_screen()
+                tools.clean_screen()
+
+                while True:
+                    tools.clean_screen()
+                    user_rounds = input('Introduce the number of rounds that you want to play: ')
+
+                    try:
+                        t_rounds = int(user_rounds)
+                        break
+
+                    except ValueError:
+                        tools.clean_screen()
+                        print("Invalid input! Please enter a valid number.")
+                        tools.time.sleep(2)
+
+                print('\n   You are playing!')
+                tools.time.sleep(2)
+                second_screen(t_rounds)
+            
+            elif yes_no_choice == 2:
+                tools.clean_screen()
+                end_screen()
+                break
+        except ValueError:
             tools.clean_screen()
-            t_rounds = int(input('Introduce the number of rounds that you want to play: '))
-            print('\n   You are playing!')
+            print("\nInvalid input! Please enter a valid number.")
             tools.time.sleep(2)
-            second_screen(t_rounds)
-        
-        elif yes_no_choice == 2:
-            tools.clean_screen()
-            end_screen()
-            break
+            
 
 def second_screen(t_rounds):
 
@@ -81,9 +101,9 @@ Round {n_round} of {total_rounds} | Player score => {p_score} - AI score => {ai_
                 tools.clean_screen()
         
         except ValueError:
-            print("Invalid input! Please enter a valid number.")
-            tools.time.sleep(2)
             tools.clean_screen()
+            print("\nInvalid input! Please enter a valid number.")
+            tools.time.sleep(2)
     
 
 def end_screen():
