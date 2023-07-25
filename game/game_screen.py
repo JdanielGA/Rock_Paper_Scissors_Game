@@ -37,7 +37,7 @@ Welcome to Rock, Paper, Scissors game!
 def second_screen(t_rounds):
 
     tools.clean_screen()
-    t_rounds = t_rounds
+    total_rounds = t_rounds
     n_round = 1
     p_score = 0
     ai_score = 0
@@ -48,7 +48,7 @@ def second_screen(t_rounds):
         print(f'''
     Your are playing!
 
-Round {n_round} of {t_rounds} | Player score => {p_score} - AI score => {ai_score}
+Round {n_round} of {total_rounds} | Player score => {p_score} - AI score => {ai_score}
 
     choose between:
 
@@ -70,6 +70,10 @@ Round {n_round} of {t_rounds} | Player score => {p_score} - AI score => {ai_scor
             elif user_choice in [1, 2, 3]:
                 p_score, ai_score, = mechanics.game_mechanics(user_choice, p_score, ai_score)
                 n_round += 1
+                if n_round > total_rounds:
+                    print(f'The match has finished, final score: Player score => {p_score} - AI score => {ai_score}')
+                    tools.time.sleep(3)
+                    return False
 
             else:
                 print("Invalid input! Please choose a valid option.")

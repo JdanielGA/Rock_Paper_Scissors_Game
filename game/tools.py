@@ -14,7 +14,7 @@ def charging_screen():
         clean_screen()
         print(f'charging {message}')
         time.sleep(counter)
-        counter += 0.5
+        counter += 0.33
         message = message * 2
 
 def ai_player():
